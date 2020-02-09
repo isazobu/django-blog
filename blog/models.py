@@ -16,5 +16,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def __del__(self):
+        print("Deleted")
 
 # Create your models here.

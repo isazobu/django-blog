@@ -47,6 +47,14 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
+def post_delete(request, pk):
+
+    Post.objects.filter(pk=pk).delete()
+    return redirect('post_list')
+
+    
+
+
 def deneme_list(request):
     denemeler = Post.objects.filter(
         published_date__lte=timezone.now()).order_by('published_date')
